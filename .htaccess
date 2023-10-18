@@ -1,0 +1,22 @@
+
+<IfModule mod_headers.c>
+  # Prevent click jacking
+  Header set X-Frame-Options Deny
+  Header always append X-Frame-Options SAMEORIGIN
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php80” package as the default “PHP” programming language.
+<IfModule mime_module>
+AddHandler application/x-httpd-ea-php81___lsphp .php .php8 .phtml
+
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+php_value memory_limit 1024M 
